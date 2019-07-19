@@ -239,7 +239,7 @@ func main() {
 			if strings.Index(os.Args[i], ":") == -1 {
 				txt = os.Args[i] + ":"
 				if i+1 < len(os.Args) {
-					txt += os.Args[i+1]
+					txt += "\"" + os.Args[i+1] + "\""
 					i++
 				}
 			} else {
@@ -269,12 +269,10 @@ func main() {
 
 	copy(pargs, args)
 
-	for i := range pargs {
-		if isWindows() {
-			pargs[i] = "\"" + pargs[i] + "\""
-		} else {
-			pargs[i] = "'" + pargs[i] + "'"
-		}
+	if isWindows() {
+		pargs[0] = "\"" + pargs[0] + "\""
+	} else {
+		pargs[0] = "'" + pargs[0] + "'"
 	}
 
 	info("exec command: %s %s", pargs[0], strings.Join(pargs[1:], " "))
