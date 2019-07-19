@@ -2,8 +2,8 @@
 Name: "en"; MessagesFile: "compiler:Default.isl"
 
 [Setup]
-AppName=FORUM - Viewer Launcher
-AppVerName=FORUM - Viewer Launcher
+AppName=FORUM - Cirrus Launcher
+AppVerName=FORUM - Cirrus Launcher
 AppContact=Carl Zeiss Meditec AG
 AppCopyright=Carl Zeiss Meditec AG
 AppVersion=1.0.0
@@ -16,8 +16,8 @@ VersionInfoCompany=Carl Zeiss Meditec AG
 VersionInfoCopyright=Copyright © Carl Zeiss Meditec AG. All rights reserved.
 VersionInfoDescription=Carl Zeiss Meditec AG
 VersionInfoVersion=1.0.0
-UninstallDisplayIcon={app}\forumlauncher.exe
-OutputBaseFilename=Setup ForumLauncher
+UninstallDisplayIcon={app}\cirruslauncher.exe
+OutputBaseFilename=Setup CirrusLauncher
 DisableReadyPage=false
 AlwaysShowDirOnReadyPage=false
 Compression=lzma
@@ -31,16 +31,16 @@ UsePreviousGroup=no
 DirExistsWarning=false
 
 [Registry]
-Root:HKCR; Subkey: "czmforum"; ValueType: string; ValueData: "URL:Custom Protocol"; Flags: uninsdeletekey; 
-Root:HKCR; Subkey: "czmforum"; ValueType: string; ValueName: "URL Protocol"; ValueData: ""; Flags: uninsdeletekey; 
-Root:HKCR; Subkey: "czmforum\DefaultIcon"; ValueType: string; ValueData: "{app}\FORUM Launcher.exe,0"; Flags: uninsdeletekey; 
-Root:HKCR; Subkey: "czmforum\shell\open\command"; ValueType: string; ValueData: """{app}\FORUM Launcher.exe"" ""%1"""; Flags: uninsdeletekey; 
+Root:HKCR; Subkey: "czmcirrus"; ValueType: string; ValueData: "URL:Custom Protocol"; Flags: uninsdeletekey; 
+Root:HKCR; Subkey: "czmcirrus"; ValueType: string; ValueName: "URL Protocol"; ValueData: ""; Flags: uninsdeletekey; 
+Root:HKCR; Subkey: "czmcirrus\DefaultIcon"; ValueType: string; ValueData: "{app}\CIRRUS Launcher.exe,0"; Flags: uninsdeletekey; 
+Root:HKCR; Subkey: "czmcirrus\shell\open\command"; ValueType: string; ValueData: """{app}\CIRRUS Launcher.exe"" ""%1"""; Flags: uninsdeletekey; 
 
 [Files]
-Source: "D:\go\bin\forumlauncher.exe"; DestDir: "{app}"; DestName: "FORUM Launcher.exe"
+Source: "D:\go\bin\cirruslauncher.exe"; DestDir: "{app}"; DestName: "CIRRUS Launcher.exe"
 
 [UninstallDelete]
-Type: files; Name: "{app}\FORUM Launcher.log"
+Type: files; Name: "{app}\CIRRUS Launcher.log"
 
 [Code]
 Procedure Uninstall(title : String);
@@ -83,9 +83,9 @@ begin
   Result := True;
   if (PageId = wpSelectDir) then 
   begin
-    if not FileExists(ExpandConstant('{app}\FORUM Viewer.exe')) then 
+    if not FileExists(ExpandConstant('{app}\Czm.Sdoct.AnalysisEngine.exe')) then 
     begin
-      MsgBox('The selected directory does not contain the file FORUM Viewer.exe.  Please select the correct folder.', mbError, MB_OK);
+      MsgBox('The selected directory does not contain the file Czm.Sdoct.AnalysisEngine.exe.  Please select the correct folder.', mbError, MB_OK);
       Result := False;
     end;
   end;                                                        
