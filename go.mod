@@ -1,4 +1,4 @@
-module cirruslauncher
+module github.com/mpetavy/cirruslauncher
 
 go 1.21
 
